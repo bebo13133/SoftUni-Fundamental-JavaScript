@@ -1,0 +1,18 @@
+function catInfo(input) {
+    class Cat {
+        constructor(catName, catAge) {
+            this.name = catName
+            this.age = catAge
+        }
+        meow() {
+            console.log(`${this.name}, age ${this.age} says Meow`)
+        }
+    }
+    for (let info of input) {
+        let [catName, catAge] = info.split(" ")
+        let newCat = new Cat(catName, catAge);
+        newCat.meow();
+
+    }
+
+}
