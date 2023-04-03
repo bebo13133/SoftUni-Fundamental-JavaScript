@@ -1,4 +1,4 @@
-function solve(arr) { 
+function printNthElement(arr) { 
     let result = 'no'; 
     for (let i = 0; i < arr.length ; i++) { 
         let leftSum = 0;
