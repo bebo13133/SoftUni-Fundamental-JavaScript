@@ -29,11 +29,11 @@ function dark(input) {
 
             default:
                 health -= value;
-                (health > 0) ?console.log(`You slayed ${command}.`)
-                   : (console.log(`You died! Killed by ${command}.`),
-                    isOver = true,
-                    console.log(`Best room: ${roomCounter}`));
-                
+                (health > 0) ? console.log(`You slayed ${command}.`)
+                    : (console.log(`You died! Killed by ${command}.`),
+                        isOver = true,
+                        console.log(`Best room: ${roomCounter}`));
+
                 break;
         }
         if (isOver) {
