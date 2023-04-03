@@ -1,4 +1,4 @@
-function solve(arr) {
+function gladiatorInventory(arr) {
     let target = arr[0];
   
     let cut = (n) => n / 4;

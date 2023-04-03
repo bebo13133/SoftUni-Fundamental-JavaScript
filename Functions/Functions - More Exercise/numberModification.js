@@ -1,4 +1,4 @@
-function solve(n) {
+function gladiatorInventory(n) {
     let nToString = n
       .toString()
       .split('')
