@@ -1,35 +1,20 @@
-class Laptop {
-    isOn = false
-    constructor(info, quality) {
-        this.info = info,
+class Vehicle {
+
+    constructor(type, model, parts, fuel) {
+        this.type = type
+        this.model = model
+        this.parts = parts
+        this.fuel = fuel
       
-        this.quality = quality,
-        this.price = 800 - ( this.info.age * 2 ) + (this.quality * 0.5)
+        this.parts.quality = parts.engine * parts.power
+    }
+    drive(fuelLoss) {
+        this.fuel -= fuelLoss
     }
 
-    turnOn() {
-        this.isOn = true;
-        this.quality -= 1;
-        this.price = 800 - ( this.info.age * 2 ) + (this.quality * 0.5);
-    }
-
-    turnOff() {
-        this.isOn = false;
-        this.quality -= 1;
-        this.price = 800 - ( this.info.age * 2 ) + (this.quality * 0.5);
-    }
-
-    showInfo() {
-        return JSON.stringify(this.info);
-    }
 }
-
-let info = {producer: "Dell", age: 2, brand: "XPS"}
-let laptop = new Laptop(info, 10)
-laptop.turnOn()
-console.log(laptop.showInfo())
-laptop.turnOff()
-console.log(laptop.quality)
-laptop.turnOn()
-console.log(laptop.isOn)
-console.log(laptop.price)
+let parts = { engine: 6, power: 100 };
+let vehicle = new Vehicle('a', 'b', parts, 200);
+vehicle.drive(100);
+console.log(vehicle.fuel);
+console.log(vehicle.parts.quality);
