@@ -1,15 +1,30 @@
-function rageQuit(input = []) {
-    let path = /[\D]+([\d]+)/g;
-    input = input.shift().match(path);
-    let pattern = /([\D]+)([0-9]+)/;
-    let str = input.reduce((accum, element, index) => {
-        let result = element.match(pattern);
-        let sub = result[1].toUpperCase();
-        let count = Number(result[2]);
-        accum += sub.repeat(count)
-        return accum
-    }, "")
-    let reduced = (new Set(str).size);
-    console.log(`Unique symbols used: ${reduced}`);
-    console.log(str);
+function winningTicket(text) {
+
+    let tickets = text.split(/\s*,\s*/g)//.map(ticket => ticket.trim());
+    for (const ticket of tickets) {
+        let ticketLength = ticket.length;
+        if (ticketLength !== 20) {
+            console.log('invalid ticket');
+            continue;
+        }
+
+        let pattern = /(?=.{20}).*?(?=(?<ch>[@#$^]))(?<match>\k<ch>{6,}).*(?<=.{10})\k<match>.*/;
+        let match = pattern.exec(ticket);
+        if (match === null) {
+            console.log(`ticket "${ticket}" - no match`);
+            continue;
+        }
+        if (match !== null) {
+
+            let matchingSymbol = match[1].substring(0, 1);
+            let matchingSymbolLength = match[2].length;
+            if (matchingSymbolLength < 10) {
+                console.log(`ticket "${ticket}" - ${matchingSymbolLength}${matchingSymbol}`);
+            }
+
+            if (matchingSymbolLength === 10) {
+                console.log(`ticket "${ticket}" - ${matchingSymbolLength}${matchingSymbol} Jackpot!`);
+            }
+        }
+    }
 }
